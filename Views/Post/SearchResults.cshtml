@@ -1,0 +1,28 @@
+﻿@model IEnumerable<XavierSite.DB.Post>
+
+@{
+    ViewBag.Title = "Search Results";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search Results</h2>
+
+@{
+    if (Model != null)
+    {
+        foreach (var post in Model)
+        {
+    <div class="blogMain">
+        <div class="blogTitle">
+            @Html.ActionLink(post.Title, "Details", new { postId = post.PostId, postTitle = post.Title.Replace(".", "").Replace(" ", "-") }, null)
+            posted at @post.CreatedDate.ToString("MMM dd yyyy")
+        </div>
+    </div>
+    <hr />
+        }
+    }
+    else
+    {
+        @Html.Raw("No post found") 
+    }
+}

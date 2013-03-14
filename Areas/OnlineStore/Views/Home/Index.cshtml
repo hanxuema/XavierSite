@@ -1,0 +1,40 @@
+﻿@model IEnumerable<XavierSite.DB.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/OnlineStore/Views/Shared/_Layout.cshtml";
+}
+
+
+<h2></h2>
+
+<div id="mainIntro">
+    <h3>Hello everyone!</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eu diam enim. Aliquam tempor ipsum sit amet erat convallis lobortis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean blandit lacinia tincidunt. Proin malesuada mattis lorem consequat scelerisque. Aliquam tincidunt sapien in magna congue sed convallis orci blandit. Donec vel quam ligula, ac ullamcorper neque. Morbi et dolor id mauris ultrices posuere. Suspendisse potenti. Mauris vestibulum, dolor ut mattis pharetra, purus nulla fringilla tortor, at ultrices dolor massa at diam. Maecenas pellentesque consectetur est, non placerat mauris fermentum id. Quisque at neque eu est laoreet vestibulum et vel ante. Nulla erat nibh, eleifend vel pharetra et, aliquam ut mi. Vivamus pharetra erat eu velit laoreet sagittis. Aliquam id convallis elit. </p>
+</div>
+
+<table>
+
+    <div id="skillsContainer">
+
+        @{int index  = 1;}
+        @foreach (var product in Model)
+        {
+            Html.RenderPartial(
+                "~/Areas/OnlineStore/Views/Shared/_ProductDetail.cshtml", 
+                product,
+                new ViewDataDictionary(this.ViewData) { { "index", index } }
+                //above can be  new ViewDataDictionary { { "index", index } } but this override the default ViewData 
+                );
+            index++;
+        }
+
+    </div>
+
+</table>
+
+
+<table>
+    <div id="projectsContainer">
+    </div>
+</table>

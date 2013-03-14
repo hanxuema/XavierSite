@@ -1,0 +1,24 @@
+﻿@model XavierSite.DB.Product
+
+
+
+<div class="skillContainer">
+    <div class="index">
+        @ViewData["index"]
+    </div>
+    <div class="productPic">
+        pic
+        @*       <img src="@Url.Action("GetImage", "Product", new {Model.ProductId})" alt="@Model.Name" />*@
+    </div>
+    <div class="productDetail">
+        <div class="productTitle">@Model.Name</div>
+        <div class="productDescription">@Model.Description</div>
+        <div class="productPrice">@Model.Price.ToString("C")</div>
+    </div>
+    <div class="addToCart">
+        <form action="@Url.Action("AddToCart", "Cart", new { id = @Model.ProductId })" method="post">
+            <input type="submit" class="actionButton" value="Add to Cart" />
+        </form>
+    </div>
+
+</div>

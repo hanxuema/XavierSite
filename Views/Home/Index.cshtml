@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<script src="~/Scripts/jquery-1.6.2.js"></script>
+<script>
+    $(document).ready(function () {
+        $('#homeTestForm').submit(function (event) {
+            alert("success");
+        });
+
+       
+    });
+</script>
+
+<form action="@Url.Action("About","Home")" method="post" id="homeTestForm">
+    <textarea rows="10" cols="50"></textarea>
+    <br />
+    <input type="submit" name="name" value="submit" />
+</form>
+
+<a href="#">content</a>

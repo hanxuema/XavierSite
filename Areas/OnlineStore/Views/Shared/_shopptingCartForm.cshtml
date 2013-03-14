@@ -1,0 +1,13 @@
+﻿@{
+    if (Session["cart"] != null)
+    {
+        XavierSite.Areas.OnlineStore.Concrete.Cart cart = (XavierSite.Areas.OnlineStore.Concrete.Cart)Session["cart"];
+       @Html.ActionLink(cart.Lines.Sum(c => c.Quantity).ToString() + " item(s) " + cart.TotalValue().ToString("C"), "CartDetail", "Cart");
+ 
+    }
+    else
+    {
+        @Html.Raw("0 item");
+    }
+    
+}

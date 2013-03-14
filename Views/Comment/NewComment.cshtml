@@ -1,0 +1,55 @@
+﻿@model XavierSite.ViewModel.CreateCommentViewModel
+
+@{
+    ViewBag.Title = "NewComment";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>NewComment</h2>
+
+<script type="text/javascript" src="../ckeditor/ckeditor.js"></script>
+
+@using (Html.BeginForm("Create","Comment", FormMethod.Post)) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CreateCommentViewModel</legend>
+                <div class="editor-label">
+            @Html.LabelFor(model => model.Username)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EmailAddress) (optional)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EmailAddress) 
+            @Html.ValidationMessageFor(model => model.EmailAddress)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.content)
+        </div>
+        <div class="editor-field">
+             @Html.TextAreaFor(model => model.content, 10, 1, new { @class = "ckeditor" })
+            @Html.ValidationMessageFor(model => model.content)
+        </div>
+ 
+            @Html.HiddenFor(model => model.postId)
+         
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

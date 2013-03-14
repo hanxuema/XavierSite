@@ -1,0 +1,16 @@
+﻿@model XavierSite.DB.Post
+
+@{
+    
+    foreach (var comment in Model.Comments.OrderByDescending(c => c.CreatedDate))
+    {
+    <div class="commentBody">
+        <div class="commentAuthor">@comment.Author.Name said:</div>
+
+        <div class="commentContent">
+            @Html.Raw(comment.Content)
+        </div>
+        <div class="commentDate">@comment.CreatedDate.ToString()</div>
+    </div>        
+    }
+}

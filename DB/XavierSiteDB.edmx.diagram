@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d8f149abe1c04cb18a3d579dcf196e21" Name="Diagram1">
+        <EntityTypeShape EntityType="XavierSiteModel.Category" Width="1.5" PointX="7.5" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="XavierSiteModel.OrderProduct" Width="1.5" PointX="6.875" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XavierSiteModel.Order" Width="1.5" PointX="3" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="XavierSiteModel.Post" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="XavierSiteModel.Product" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="XavierSiteModel.FK_Products_Categories" ManuallyRouted="false" />
+        <AssociationConnector Association="XavierSiteModel.FK_OrderProducts_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="XavierSiteModel.FK_OrderProducts_Products" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="XavierSiteModel.Author" Width="1.5" PointX="0.625" PointY="4.625" />
+        <EntityTypeShape EntityType="XavierSiteModel.Customer" Width="1.5" PointX="0.75" PointY="9.625" />
+        <AssociationConnector Association="XavierSiteModel.FK_Orders_Users1" />
+        <EntityTypeShape EntityType="XavierSiteModel.Comment" Width="1.5" PointX="5.625" PointY="3.75" />
+        <AssociationConnector Association="XavierSiteModel.FK_Comments_Authors" />
+        <AssociationConnector Association="XavierSiteModel.FK_Comments_Posts" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

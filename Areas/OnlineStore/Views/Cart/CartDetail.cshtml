@@ -1,0 +1,54 @@
+﻿@model XavierSite.Areas.OnlineStore.Concrete.Cart
+
+@{
+    ViewBag.Title = "CartDetail";
+    Layout = "~/Areas/OnlineStore/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cart Detail</h2>
+
+@{if (Model != null)
+  {
+    <table>
+        <thead>
+            <tr>
+                <td align="left"><b>Quantity</b></td>
+                <td><b>Item</b></td>
+                <td><b>Pice</b></td>
+                <td><b>Subtotal</b></td>
+                <td></td>
+            </tr>
+        </thead>
+        @foreach (var item in Model.Lines)
+        {
+            <tr>
+                <td align="left">@item.Quantity</td>
+                <td>@item.Product.Name</td>
+                <td>@item.Product.Price</td>
+                <td>@((item.Quantity * item.Product.Price).ToString("C"))</td>
+                <td>
+                    @using (Html.BeginForm("RemoveFromCart", "Cart", FormMethod.Post))
+                    {
+                        @Html.Hidden("productId", item.Product.ProductId)
+
+                        <input type="submit" class="actionButton" value="Remove" />
+                    }
+                </td>
+            </tr>    
+        }
+        <tfoot>
+            <tr>
+                <td colspan="3" align="right"><b>Total:</b></td>
+                <td><b>@Model.TotalValue().ToString("C")</b></td>
+            </tr>
+            <tr>
+
+                <td colspan="3"></td>
+                <td class="actionButton">@Html.ActionLink("CheckOut", "Checkout")</td>
+
+            </tr>
+        </tfoot>
+    </table>
+      
+  }  
+}

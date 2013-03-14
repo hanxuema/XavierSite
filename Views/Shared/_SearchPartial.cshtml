@@ -1,0 +1,35 @@
+﻿<script>
+    $(function () {
+        var availableTags = [
+            "ActionScript",
+            "AppleScript",
+            "Asp",
+            "BASIC",
+            "C",
+            "C++",
+            "Clojure",
+            "COBOL",
+            "ColdFusion",
+            "Erlang",
+            "Fortran",
+            "Groovy",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lisp",
+            "Perl",
+            "PHP",
+            "Python",
+            "Ruby",
+            "Scala",
+            "Scheme"
+        ];
+  
+    });
+</script>
+
+@using (Html.BeginForm("Search", "post"))
+{
+    <input type="text" id="searchBox" name="searchString" />
+    <input id="searchButton" value="Go" type="submit" />
+}

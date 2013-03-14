@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title - Xavier's Site</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/ui/jqueryui")
+
+    <script src="~/Scripts/jquery-ui-1.8.11.js"></script>
+    <script src="~/Scripts/jquery-1.6.2.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            //move the left panel and right panel with scroll
+            $(window).scroll(function () {
+                $('#leftPanel')
+                    .stop()
+                    .animate(
+                    { "margin-top": ($(window).scrollTop() + 5) + "px" },
+                    "1000");
+            });
+
+            //move the nav with scroll
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 48) {
+                    $('#nav').css(
+                        {
+                            "position": "fixed",
+                            "top": "0"
+                        });
+                } else {
+                    $('#nav').css(
+                        {
+                            "position": "absolute",
+                            "top": "1px"
+                        });
+                }
+
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+    <div id="nav">
+        <ul id="menuHorizon">
+            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <li>@Html.ActionLink("Blog", "Index", "Post")</li>
+            <li>@Html.ActionLink("About", "About", "Home")</li>
+            <li>@Html.ActionLink("OnlineStore", "Index", "Home", new { area = "OnlineStore" }, null)</li>
+            <li></li>
+        </ul>
+    </div>
+    <div id="outContainer">
+        <div id="header">
+            <div id="logo">
+                @*<p>@Html.ActionLink("your logo here", "Index", "Home")</p>*@
+                Welcome!
+            </div>
+            <div id="forms">
+                <div id="login">
+                    @Html.Partial("_LoginPartial")
+                </div>
+                <br />
+                <div id="searchForm">
+                    @Html.Partial("_SearchPartial")
+                </div>
+            </div>
+        </div>
+
+        <div id="mainContainer">
+            <div id="leftPanel">
+                <div id="intro">
+                    <div class="leftPanelTitle">My introduction</div>
+                    <div id="xavierPic">
+                        <a href="">
+                            <img id="pic" src="~/images/me.jpg" alt="nice guy :)" /></a>
+                    </div>
+                    <div id="bio">
+                        My name is Xavier Xie, a software developer living in Brisbane Australia. I graduated from Queensland University of Technology and studying Master Degree in University of Queensland. I've been working as a full-time developer since 2008.
+                    </div>
+                </div>
+
+
+                <div id="twitterFeed">
+                </div>
+            </div>
+
+            <div id="mainPanel">
+                @RenderBody()
+            </div>
+
+            <div id="rightPanel">
+                <div id="navVertical">
+                    <ul>
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Blog", "Index", "Post")</li>
+                        <li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("OnlineStore", "Index", "Home", new { Area = "OnlineStore" }, null)</li>
+                    </ul>
+                </div>
+                <div id="recentBlog">
+                    <div class="leftPanelTitle">Recent posts</div>
+                    @{
+                        Html.RenderPartial("_recentBlogs");
+                    }
+                </div>
+            </div>
+        </div>
+        <br />
+
+        <div id="footer">
+            <p>&copy; @DateTime.Now.Year - Xavier's Blog</p>
+        </div>
+    </div>
+
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

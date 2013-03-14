@@ -1,0 +1,46 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<link href="~/Content/OnlineStore.css" rel="stylesheet" />
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Xamazon</title>
+</head>
+<body>
+    <div id="header">
+     
+        <div id="logo">
+            <a href="@Url.Action("Index","Home")">Xamazon</a> 
+        </div>
+        <div id="searchForm">
+            @Html.Partial("~/Areas/OnlineStore/Views/Shared/_searchFrom.cshtml")
+        </div>
+        <div id="login">
+            @Html.Partial("~/Areas/OnlineStore/Views/Shared/_loginForm.cshtml")
+        </div>
+        <div id="shoppingCart">
+            @Html.Partial("~/Areas/OnlineStore/Views/Shared/_shopptingCartForm.cshtml")
+        </div>
+    </div>
+    <div id="mainContainer">
+        <div id="leftPanels">
+            <div id="category">
+                <div class="sideHeader">
+                    Skill category
+                </div>
+            </div>
+        </div>
+        <div id="centerContainer">
+            @RenderBody()
+        </div>
+    </div>
+    <div id="footer">
+        this is footer
+    </div>
+    <div id="changethis"></div>
+</body>
+</html>

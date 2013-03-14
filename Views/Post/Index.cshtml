@@ -1,0 +1,47 @@
+﻿@model IEnumerable<XavierSite.DB.Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Blogs</h2>
+
+<p>
+    @{
+        if (!Request.IsAuthenticated)
+        {
+        @Html.ActionLink("Create", "Create")    
+        }
+    }
+</p>
+
+@{
+    foreach (var post in Model)
+    {
+    <div class="blogMain">
+        <div class="blogTitle">
+            @Html.RouteLink(post.Title, "postDetails", new  {id = post.PostId, postTitle = post.Title.Replace(".", "").Replace(" ", "-") })
+            @*@Html.ActionLink(post.Title, "Details", new { id = post.PostId, postTitle = post.Title.Replace(".", "").Replace(" ", "-") }, null)*@
+
+             @if (Request.IsAuthenticated)
+            {
+                @Html.ActionLink("Delete", "Delete", new { postId = post.PostId }, new { @class = "blogDelete" })
+            }
+        </div>
+        <div class="blogContainer">
+            <div class="blogCreateDate">
+                @post.CreatedDate.ToString("yyyy")
+                <br />
+                @post.CreatedDate.ToString("MMM-dd")
+            </div>
+
+            <div class="blogContent">
+                @Html.Raw(post.Content)
+            </div>
+        </div>
+    </div>
+    <hr />
+    }
+}
+
+

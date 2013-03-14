@@ -1,0 +1,17 @@
+﻿
+<ul>
+    @{
+        XavierSite.DB.XavierSiteConnect db = new XavierSite.DB.XavierSiteConnect();
+        var recentBlogs = (from b in db.Posts
+                           orderby b.CreatedDate descending
+                           select b).Take(5).ToList();
+
+
+        foreach (var blog in recentBlogs)
+        {
+        <li>
+            @Html.ActionLink(blog.Title, "Details", "Post", new { postId = blog.PostId, postTitle = blog.Title.Replace(".", "").Replace(" ", "-") }, null) 
+        </li>
+        }                         
+    }
+</ul>

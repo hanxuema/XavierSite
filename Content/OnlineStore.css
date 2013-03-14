@@ -1,0 +1,208 @@
+﻿body
+{
+    font-family: verdana,arial,helvetica,sans-serif;
+}
+
+div
+{
+    overflow: no-content;
+}
+
+#header
+{
+    width: 75em;
+    margin-left: auto;
+    margin-right: auto;
+    height: 4.375em;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+}
+
+#logo
+{
+    width: 3.125em;
+    height: 3.125em;
+    display: block;
+    float: left;
+}
+
+#searchForm
+{
+    float: left;
+}
+
+#shoppingCart
+{
+    float: right;
+}
+
+#mainContainer
+{
+    width: 75em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#leftPanels
+{
+    border: groove;
+    background-color: red;
+    float: left;
+    width: 10em;
+    margin: 0.3125em 0.3125em 0 0;
+}
+
+.sideHeader
+{
+    font-weight: bold;
+    font-size: small;
+    text-align: center;
+    color: #E47911;
+    background-color: rgba(208, 228, 239, 0.91);
+}
+
+#centerContainer
+{
+    border: groove;
+    margin: 0.3125em 0 0 0.3125em;
+    /*padding;*/
+    float: right;
+    width: 63em;
+    height:;
+    background:;
+    font:;
+    /*display:;*/
+}
+
+#mainIntro
+{
+}
+
+.skillsContainer
+{
+    border-top: dotted;
+    border-bottom: dotted;
+}
+
+.skillContainer
+{
+    border-top: dashed #999999 1px;
+    height: 9em;
+}
+
+.index
+{
+    float: left;
+}
+
+.productPic
+{
+    height: 8.125em;
+    width: 6.56em;
+    border: 0;
+    float: left;
+}
+
+.productDetail
+{
+    float: left;
+    width: 27.8em;
+}
+
+.productTitle
+{
+}
+
+.productPrice
+{
+    color: #990000;
+}
+
+.addToCart
+{
+    float: left;
+}
+
+    .addToCart input[type="submit"]
+    {
+        margin-top: 1em;
+        background: -moz-linear-gradient(0% 100% 90deg, #A2ACBF, #E6EAF2) repeat scroll 0 0 transparent;
+        border-color: #A3B1CC #8F9BB3 #666F80;
+        border-radius: 4px 4px 4px 4px;
+        border-style: solid;
+        border-width: 1px;
+        box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5) inset, 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+
+#projectsContainer
+{
+}
+
+#footer
+{
+    /*border:;*/
+    /*margin:;*/
+    /*padding;*/
+    clear: both;
+    width: 75em;
+    margin-left: auto;
+    margin-right: auto;
+    /*height:;*/
+    /*background:;*/
+    /*font:;*/
+    /*display:;*/
+}
+
+hr
+{
+}
+
+table
+{
+    width: 62em;
+    text-align: right;
+}
+
+thead
+{
+    font:bold;
+}
+td
+{
+    width: 12.4em;
+}
+
+tfoot
+{
+    border-top: 1px solid #DDDDDD;
+}
+
+#example
+{
+    /*border:;*/
+    /*margin:;*/
+    /*padding;*/
+    /*float:;*/
+    /*width:;*/
+    /*height:;*/
+    /*background:;*/
+    /*font:;*/
+    /*display:;*/
+}
+
+
+.actionButton
+{
+    margin-top: 1em;
+    background: -moz-linear-gradient(0% 100% 90deg, #A2ACBF, #E6EAF2) repeat scroll 0 0 transparent;
+    border-color: #A3B1CC #8F9BB3 #666F80;
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.5) inset, 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    text-decoration:none;
+}
+    .actionButton link
+    {
+        background-color:red;
+    }
