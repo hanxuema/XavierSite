@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Xavier Xie | Cloud & AI Platform Engineer</title>
+    <meta
+      name="description"
+      content="Personal website for Xavier Xie, a Brisbane-based cloud and AI platform engineer focused on AWS, automation, and production AI systems."
+    />
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #081014;
+        --bg2: #0e1a20;
+        --panel: rgba(12, 26, 31, 0.78);
+        --panel-strong: rgba(14, 32, 39, 0.92);
+        --line: rgba(224, 239, 234, 0.12);
+        --text: #ecf6f2;
+        --muted: #a9bfba;
+        --muted-2: #7f9690;
+        --accent: #63d6b2;
+        --accent-2: #7fb4ff;
+        --warm: #f0bb5f;
+        --shadow: 0 30px 80px rgba(0, 0, 0, 0.34);
+        --radius: 16px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          linear-gradient(180deg, rgba(8, 16, 20, 0.96), rgba(8, 16, 20, 0.98)),
+          radial-gradient(circle at 12% 16%, rgba(99, 214, 178, 0.12), transparent 24%),
+          radial-gradient(circle at 88% 10%, rgba(127, 180, 255, 0.12), transparent 20%),
+          linear-gradient(135deg, var(--bg), var(--bg2));
+        color: var(--text);
+        font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica, sans-serif;
+      }
+
+      body {
+        line-height: 1.5;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .site {
+        width: min(1240px, calc(100vw - 32px));
+        margin: 0 auto;
+        padding: 18px 0 56px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 8px 0 22px;
+      }
+
+      .brand {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .brand strong {
+        font-size: 16px;
+        letter-spacing: 0.02em;
+      }
+
+      .brand span {
+        color: var(--muted-2);
+        font-size: 13px;
+      }
+
+      nav {
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      nav a {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      nav a:hover {
+        color: var(--text);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 22px;
+        align-items: stretch;
+        padding: 18px 0 28px;
+      }
+
+      .hero-copy,
+      .hero-visual,
+      section.band {
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+          var(--panel);
+        box-shadow: var(--shadow);
+      }
+
+      .hero-copy {
+        padding: 34px;
+        display: grid;
+        gap: 22px;
+        min-height: 520px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        width: fit-content;
+        padding: 7px 12px;
+        border: 1px solid rgba(99, 214, 178, 0.2);
+        border-radius: 999px;
+        background: rgba(99, 214, 178, 0.08);
+        color: #bff3df;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 10ch;
+        font-size: clamp(52px, 6vw, 88px);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .lede {
+        margin: 0;
+        max-width: 58ch;
+        color: var(--muted);
+        font-size: 18px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 46px;
+        padding: 0 18px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+        transition: transform 0.18s ease, border-color 0.18s ease, background 0.18s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, rgba(99, 214, 178, 0.2), rgba(127, 180, 255, 0.16));
+        border-color: rgba(99, 214, 178, 0.3);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.02);
+      }
+
+      .meta-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .meta {
+        padding: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 14px;
+        background: rgba(4, 10, 12, 0.28);
+      }
+
+      .meta span {
+        display: block;
+        color: var(--muted-2);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+
+      .meta strong {
+        display: block;
+        font-size: 18px;
+        letter-spacing: -0.03em;
+      }
+
+      .hero-visual {
+        padding: 18px;
+        display: grid;
+        align-items: stretch;
+        min-height: 520px;
+        overflow: hidden;
+      }
+
+      .visual-frame {
+        position: relative;
+        border-radius: 18px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background:
+          radial-gradient(circle at 75% 20%, rgba(127, 180, 255, 0.18), transparent 25%),
+          radial-gradient(circle at 12% 28%, rgba(99, 214, 178, 0.18), transparent 22%),
+          linear-gradient(180deg, rgba(4, 11, 15, 0.2), rgba(4, 11, 15, 0.45));
+      }
+
+      .visual-caption {
+        position: absolute;
+        left: 18px;
+        right: 18px;
+        bottom: 18px;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        align-items: end;
+        color: #dceae6;
+      }
+
+      .visual-caption strong {
+        display: block;
+        font-size: 15px;
+      }
+
+      .visual-caption span {
+        display: block;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .section {
+        padding-top: 16px;
+      }
+
+      section.band {
+        padding: 28px 30px;
+        margin-top: 18px;
+      }
+
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: end;
+        margin-bottom: 18px;
+      }
+
+      .section-head h2 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: -0.03em;
+      }
+
+      .section-head p {
+        margin: 0;
+        max-width: 58ch;
+        color: var(--muted);
+      }
+
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+
+      .project,
+      .skill,
+      .timeline-item {
+        padding: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.09);
+        border-radius: 14px;
+        background: rgba(4, 10, 12, 0.26);
+      }
+
+      .project h3,
+      .skill h3,
+      .timeline-item h3 {
+        margin: 0 0 8px;
+        font-size: 17px;
+        letter-spacing: -0.02em;
+      }
+
+      .project p,
+      .skill p,
+      .timeline-item p {
+        margin: 0;
+        color: var(--muted);
+      }
+
+      .project ul,
+      .timeline-item ul {
+        margin: 14px 0 0;
+        padding-left: 18px;
+        color: var(--text);
+      }
+
+      .project li,
+      .timeline-item li {
+        margin: 8px 0;
+        color: var(--muted);
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .chip-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .chip {
+        padding: 8px 12px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--text);
+        font-size: 13px;
+      }
+
+      .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+      }
+
+      .contact-row a {
+        color: var(--accent);
+      }
+
+      .footer {
+        padding: 22px 4px 0;
+        color: var(--muted-2);
+        font-size: 13px;
+      }
+
+      @media (max-width: 980px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy,
+        .hero-visual {
+          min-height: auto;
+        }
+
+        .skills-grid,
+        .meta-grid,
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .site {
+          width: min(100vw - 20px, 1240px);
+          padding-top: 10px;
+        }
+
+        .topbar {
+          flex-direction: column;
+          align-items: start;
+        }
+
+        nav {
+          justify-content: flex-start;
+        }
+
+        .hero-copy {
+          padding: 22px;
+        }
+
+        h1 {
+          max-width: 8ch;
+          font-size: clamp(42px, 15vw, 60px);
+        }
+
+        section.band {
+          padding: 22px 18px;
+        }
+
+        .section-head {
+          flex-direction: column;
+          align-items: start;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="site">
+      <header class="topbar">
+        <div class="brand">
+          <strong>Xavier Xie</strong>
+          <span>Cloud & AI Platform Engineer in Brisbane</span>
+        </div>
+        <nav aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <div class="eyebrow">AWS, automation, and production AI</div>
+            <div>
+              <h1>Cloud platform engineer moving into AI.</h1>
+              <p class="lede">
+                I build secure AWS platforms, automate delivery, and now focus on AI platform engineering, RAG,
+                workflow automation, and production-grade GenAI systems.
+              </p>
+            </div>
+            <div class="actions">
+              <a class="btn btn-primary" href="#projects">View projects</a>
+              <a class="btn btn-secondary" href="#contact">Get in touch</a>
+            </div>
+            <div class="meta-grid" aria-label="Highlights">
+              <div class="meta">
+                <span>Focus</span>
+                <strong>AI platform engineering</strong>
+              </div>
+              <div class="meta">
+                <span>Stack</span>
+                <strong>AWS, Terraform, Python</strong>
+              </div>
+              <div class="meta">
+                <span>Based in</span>
+                <strong>Brisbane, Australia</strong>
+              </div>
+            </div>
+          </div>
+
+          <aside class="hero-visual" aria-label="Illustration">
+            <div class="visual-frame">
+              <svg viewBox="0 0 900 900" width="100%" height="100%" preserveAspectRatio="none" role="img" aria-label="Brisbane skyline and laptop illustration">
+                <defs>
+                  <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="#0e1b24" />
+                    <stop offset="100%" stop-color="#050b0f" />
+                  </linearGradient>
+                  <linearGradient id="glow" x1="0" x2="1">
+                    <stop offset="0%" stop-color="#63d6b2" stop-opacity="0.82" />
+                    <stop offset="100%" stop-color="#7fb4ff" stop-opacity="0.82" />
+                  </linearGradient>
+                </defs>
+                <rect width="900" height="900" fill="url(#sky)" />
+                <g opacity="0.34" stroke="#bfeadd" stroke-width="1.2">
+                  <path d="M90 150 H810" />
+                  <path d="M90 250 H810" />
+                  <path d="M90 350 H810" />
+                  <path d="M90 450 H810" />
+                  <path d="M90 550 H810" />
+                </g>
+                <g opacity="0.9">
+                  <path d="M120 660 L180 660 L180 500 L220 500 L220 660 L280 660 L280 430 L330 430 L330 660 L390 660 L390 540 L435 540 L435 660 L500 660 L500 390 L560 390 L560 660 L620 660 L620 470 L675 470 L675 660 L760 660" fill="none" stroke="#d6efe8" stroke-width="8" stroke-linejoin="round" />
+                  <path d="M140 660 H760" fill="none" stroke="url(#glow)" stroke-width="3" opacity="0.55" />
+                </g>
+                <g opacity="0.9">
+                  <rect x="270" y="720" width="360" height="140" rx="16" fill="#0b151b" stroke="#d6efe8" stroke-width="3" />
+                  <rect x="290" y="740" width="320" height="96" rx="10" fill="#101f27" stroke="#27404b" stroke-width="2" />
+                  <path d="M330 778 H570" stroke="#63d6b2" stroke-width="8" stroke-linecap="round" />
+                  <path d="M330 806 H500" stroke="#7fb4ff" stroke-width="8" stroke-linecap="round" />
+                  <circle cx="585" cy="760" r="14" fill="#f0bb5f" />
+                </g>
+                <g opacity="0.7" stroke="#63d6b2" stroke-width="3" stroke-linecap="round">
+                  <path d="M450 560 C450 510, 520 500, 520 440" />
+                  <path d="M520 440 C520 400, 590 380, 590 330" />
+                  <circle cx="450" cy="560" r="7" fill="#63d6b2" />
+                  <circle cx="520" cy="440" r="7" fill="#63d6b2" />
+                  <circle cx="590" cy="330" r="7" fill="#63d6b2" />
+                </g>
+              </svg>
+              <div class="visual-caption">
+                <div>
+                  <strong>Production first</strong>
+                  <span>Reliable systems, not hype.</span>
+                </div>
+                <div>
+                  <strong>AI next</strong>
+                  <span>RAG, agents, and workflow automation.</span>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </section>
+
+        <section class="band section" id="about">
+          <div class="section-head">
+            <div>
+              <h2>About</h2>
+            </div>
+            <p>
+              I am a senior cloud and platform engineer with enterprise and government experience. My work centers on
+              AWS, infrastructure as code, CI/CD, observability, and secure production delivery. I am now applying that
+              background to AI platform engineering and GenAI systems.
+            </p>
+          </div>
+          <div class="two-col">
+            <div class="timeline-item">
+              <h3>What I do best</h3>
+              <ul>
+                <li>Build secure AWS platforms and automation</li>
+                <li>Ship reliable production systems</li>
+                <li>Design APIs, workflows, and integrations</li>
+                <li>Improve observability, cost control, and operational quality</li>
+              </ul>
+            </div>
+            <div class="timeline-item">
+              <h3>What I am building toward</h3>
+              <ul>
+                <li>AI platform engineering</li>
+                <li>RAG systems for enterprise knowledge</li>
+                <li>Workflow automation with LLM tool calling</li>
+                <li>Safe, auditable GenAI delivery on AWS</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="band section" id="projects">
+          <div class="section-head">
+            <div>
+              <h2>Projects</h2>
+            </div>
+            <p>Selected work and portfolio directions that show the move from cloud engineering into AI platform delivery.</p>
+          </div>
+          <div class="two-col">
+            <article class="project">
+              <h3>AI Career Roadmap</h3>
+              <p>A practical plan for moving from senior cloud engineering into AI platform roles.</p>
+              <ul>
+                <li>Role targeting and gap analysis</li>
+                <li>12-week execution plan</li>
+                <li>Resume and LinkedIn repositioning</li>
+              </ul>
+            </article>
+            <article class="project">
+              <h3>RAG Knowledge Assistant</h3>
+              <p>An AWS-based assistant for document retrieval, citations, access control, and logging.</p>
+              <ul>
+                <li>Document ingestion and embeddings</li>
+                <li>Retrieval and answer generation</li>
+                <li>Observability and cost visibility</li>
+              </ul>
+            </article>
+            <article class="project">
+              <h3>AI Workflow Automation</h3>
+              <p>A workflow engine for routing requests, human approval, retries, and notifications.</p>
+              <ul>
+                <li>Tool calling and orchestration</li>
+                <li>Audit trail and fallback handling</li>
+                <li>Safe production integration</li>
+              </ul>
+            </article>
+            <article class="project">
+              <h3>AWS Platform Engineering</h3>
+              <p>Production platform work across enterprise and government environments.</p>
+              <ul>
+                <li>Terraform and cloud orchestration</li>
+                <li>CI/CD and deployment reliability</li>
+                <li>SRE practices and incident response</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <section class="band section" id="skills">
+          <div class="section-head">
+            <div>
+              <h2>Skills</h2>
+            </div>
+            <p>A compact view of the stack I bring from cloud engineering into AI platform work.</p>
+          </div>
+          <div class="skills-grid">
+            <div class="skill">
+              <h3>AWS</h3>
+              <p>Lambda, ECS, EKS, S3, VPC, RDS, CloudWatch, Image Builder</p>
+            </div>
+            <div class="skill">
+              <h3>Infrastructure</h3>
+              <p>Terraform, CloudFormation, automation, platform engineering</p>
+            </div>
+            <div class="skill">
+              <h3>Software</h3>
+              <p>Python, C#, Go, APIs, integration services, workflow systems</p>
+            </div>
+            <div class="skill">
+              <h3>AI Direction</h3>
+              <p>GenAI, RAG, tool calling, observability, guardrails, evaluation</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="band section" id="contact">
+          <div class="section-head">
+            <div>
+              <h2>Contact</h2>
+            </div>
+            <p>If you are hiring for cloud, platform, or AI engineering roles, this is the easiest way to reach me.</p>
+          </div>
+          <div class="contact-row">
+            <a class="btn btn-primary" href="mailto:xieyuehao@gmail.com">Email</a>
+            <a class="btn btn-secondary" href="https://www.linkedin.com/in/xavier-yh-xie/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="btn btn-secondary" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </section>
+
+        <div class="footer">
+          Built as a static personal website for GitHub Pages. All visible content is in English.
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
